@@ -9,6 +9,15 @@ This repo uses jupyter notebook. The contents include a good mix of coursera lec
 
 If you want to follow along the contents on reading and videos as well, make sure you sign up at [Coursera](coursera.com).
 
+All algorithm quizzes are solved in python. Why? Because it was the simpleset choice for usage with jupyter notebook & I wanted to learn python. 
+
+## Viewing from Github
+Github supports reading jupyter notebook on web, but image files on the web can only be read on a local notebook launch. If you want to view the images (mostly PPT slides), please download a clone and launch the notebook.
+
+## Contents 
+* [Week 1: Getting a bit of taste](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-1-getting-a-bit-of-taste.ipynb)
+* [Week 2: Algorithmic warm up](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-2-algorithmic-warm-up.ipynb)
+
 # Getting started on your computer
 * clone this repo
 ```bash

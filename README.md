@@ -17,6 +17,7 @@ Github supports reading jupyter notebook on web, but image files on the web can 
 ## Contents 
 * [Week 1: Getting a bit of taste](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-1-getting-a-bit-of-taste.ipynb)
 * [Week 2: Algorithmic warm up](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-2-algorithmic-warm-up.ipynb)
+* [Week 3: Greedy algorithms](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-3-greedy-algorithms.ipynb)
 
 # Getting started on your computer
 * clone this repo

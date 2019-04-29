@@ -1,4 +1,5 @@
 # https://programmers.co.kr/learn/courses/30/lessons/42586?language=python3
+# https://sunpil.tistory.com/40
 # 100 = progresses[i] + speeds[i] * day
 # ( 100 - progresses[i] ) / speeds[i] = day
 def solution(progresses, speeds):

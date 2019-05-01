@@ -4,19 +4,13 @@
 # ( 100 - progresses[i] ) / speeds[i] = day
 def solution(progresses, speeds):
     from math import ceil
-    from functools import reduce
     daysNeeded = [ceil((100 - progress) / speeds[count]) for count, progress in enumerate(progresses)]
     ans = []
-    counter = 1
-    while(daysNeeded):
+    while daysNeeded:
         first = daysNeeded.pop(0)
-        if daysNeeded:
-            maximum = max(first, daysNeeded[0])
-            if maximum == first:
-                counter += 1
-            else:
-                ans.append(counter)
-                counter = 1
-        else:
-            ans.append(counter)        
+        count = 1
+        while daysNeeded and first >= daysNeeded[0]:
+            daysNeeded.pop(0)
+            count += 1
+        ans.append(count)
     return ans

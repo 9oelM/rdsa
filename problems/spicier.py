@@ -1,22 +1,16 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42626
+
 def solution(scoville, K):
-    scoville.sort()
-#    print(scoville)
-    scv, cnt = 0, 0
-    while len(scoville) >= 1 and scv <= K:
-        scv = scoville.pop(0) + scoville[0] * 2
-        scoville[0] = scv
-      #  print(scoville)
-        scoville.sort()
-        cnt += 1
-    return cnt
-    """ 
     from heapq import heapify, heappop, heappush
     heapify(scoville)
-    print(scoville)
-    scv, cnt = 0, 0
-    while len(scoville) >= 1 and scv <= K:
-        scv += heappop(scoville) + scoville[0] * 2
-        scoville[0] = scv
-        print(scoville)
-        cnt += 1
-    return cnt"""
+    cnt = 0
+    while scoville[0] <= K:
+        try:
+            heappush(scoville, heappop(scoville) + (heappop(scoville) * 2))
+            cnt += 1
+        except: 
+            # you might get an error trying to pop from the heap for the second time. If this happens, 
+            # it's already the case that you are running out of elements, 
+            # but you still can't make all food's scoville indices larger than K.
+            return -1
+    return cnt 

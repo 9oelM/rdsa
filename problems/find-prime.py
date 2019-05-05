@@ -4,7 +4,6 @@ from typing import List, Callable
 intToList = Callable[[int], List[int]]
 
 def memoize(func : intToList) -> intToList:
-    print('with memoize')
     cache = []
     def memoizer(n):
         nonlocal cache
@@ -13,7 +12,7 @@ def memoize(func : intToList) -> intToList:
         return cache 
     return memoizer
 
-
+@memoize
 def getPrime(n : int) -> List[int]:
     prime = [True for i in range(n + 1)]
     fac = 2
@@ -29,6 +28,15 @@ def isPrime(n : int) -> bool:
     
 def solution(numbers):
     import itertools
-    ans = list(map(''.join, itertools.permutations(list(numbers))))
-    print(ans)
-    return 1
+    arr = []
+    cnt = 0
+    for i in range(1, len(numbers)+1): 
+        arr += list(map(lambda s : int(''.join(s)), itertools.permutations(list(numbers), i)))
+    arr = list(set(arr))
+    arr.sort()
+    for item in reversed(arr):
+        if item <= 1:
+            pass
+        elif isPrime(item):
+            cnt += 1
+    return cnt

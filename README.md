@@ -15,9 +15,12 @@ All algorithm quizzes are solved in python. Why? Because it was the simpleset ch
 Github supports reading jupyter notebook on web, but image files on the web can only be read on a local notebook launch. If you want to view the images (mostly PPT slides), please download a clone and launch the notebook.
 
 ## Contents 
-* [Week 1: Getting a bit of taste](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-1-getting-a-bit-of-taste.ipynb)
-* [Week 2: Algorithmic warm up](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-2-algorithmic-warm-up.ipynb)
-* [Week 3: Greedy algorithms](https://github.com/9oelM/rdsa/blob/master/1-algorithmic-toolbox/week-3-greedy-algorithms.ipynb)
+### Algorithmic toolbox
+* [Week 1: Programming Challenges](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-1-programming-challenges)
+* [Week 2: Algorithmic warm up](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-2-algorithmic-warm-up)
+* [Week 3: Greedy algorithms](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-3-greedy-algorithms)
+* [Week 4: Divide and Conquer](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-4-divide-and-conquer)
+* [Week 5: Dynamic programming 1](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-5-dynamic-programming-1)
 
 # Getting started on your computer
 * clone this repo

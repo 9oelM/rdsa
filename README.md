@@ -5,22 +5,25 @@
 Preparation for coding interviews with concentration on data structures and algorithms.
 
 ## How does this repo work
-This repo uses jupyter notebook. The contents include a good mix of coursera lectures and coding quizzes from the Internet (mainly leetcode and geeksforgeeks). 
-
-If you want to follow along the contents on reading and videos as well, make sure you sign up at [Coursera](coursera.com).
-
-All algorithm quizzes are solved in python. Why? Because it was the simpleset choice for usage with jupyter notebook & I wanted to learn python. 
+This repo uses jupyter notebook. The contents include a good mix of coursera/edx lectures and coding quizzes from the Internet.
 
 ## Viewing from Github
-Github supports reading jupyter notebook on web, but image files on the web can only be read on a local notebook launch. If you want to view the images (mostly PPT slides), please download a clone and launch the notebook.
+Github supports reading jupyter notebook on web, but image files on the web can only be read on a local notebook launch. 
+If you want to view the images (mostly PPT slides), download a clone and launch the notebook.
 
 ## Contents 
-### Algorithmic toolbox
+### [Algorithmic toolbox](https://www.coursera.org/learn/algorithmic-toolbox?specialization=data-structures-algorithms)
 * [Week 1: Programming Challenges](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-1-programming-challenges)
 * [Week 2: Algorithmic warm up](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-2-algorithmic-warm-up)
 * [Week 3: Greedy algorithms](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-3-greedy-algorithms)
 * [Week 4: Divide and Conquer](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-4-divide-and-conquer)
 * [Week 5: Dynamic programming 1](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-5-dynamic-programming-1)
+* [Week 6: Dynamic programming 2](https://github.com/9oelM/rdsa/tree/master/1-algorithmic-toolbox/week-6-dynamic-programming-2)
+
+### [Data structures: an active learning approach](https://stepik.org/course/579/syllabus)
+* [1. Time complexity](https://github.com/9oelM/rdsa/blob/master/2-Data-Structures-An-Active-Learning-Approach/1-time-complexity.ipynb)
+* [2. Computational complexity](https://github.com/9oelM/rdsa/blob/master/2-Data-Structures-An-Active-Learning-Approach/2-computational-complexity.ipynb)
+* [3. Fundamentals of cpp](https://github.com/9oelM/rdsa/blob/master/2-Data-Structures-An-Active-Learning-Approach/3-fundamentals-of-cpp.ipynb)
 
 # Getting started on your computer
 * clone this repo

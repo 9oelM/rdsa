@@ -42,37 +42,35 @@ sudo apt-get upgrade
 
 * install the packages needed
 ```bash
-pip3 install -r requirements.txt
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+(read from the `environment.yml`)
+```bash
+conda create --name notebook create -f environment.yml
+```
+
+(manual)
+```bash
+conda create -n notebook
+
+conda activate notebook
+
+conda install jupyter
+
+conda install xeus-cling -c conda-forge # optional: for c++ kernel
 ```
 
 * start the notebook
 ```bash
-jupyter notebook
+jupyter notebook # local
+
+jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root # on cloud
 ```
 
 # Nice help & resources
 * [Jupyter docs](https://jupyter.readthedocs.io/en/latest/index.html#)
 * [Jupyter notebook docs](https://jupyter-notebook.readthedocs.io/en/latest/index.html)
 * [Python time complexity](https://wiki.python.org/moin/TimeComplexity)
-
-# Running on cloud
-```bash
-jupyter notebook --ip=0.0.0.0 --port=8080 --no-browser
-```
-
-# Troubleshooting for Jupyter notebook installation 
-First, try basic things:
-
-```bash
-sudo apt-get update
-
-sudo apt-get -y install python3-pip
-```
-
-or..
-```bash
-sudo pip3 install --upgrade pip
-
-sudo pip3 install --upgrade setuptools
-```
-For more, see [this issue](https://github.com/jupyter/notebook/issues/2605)

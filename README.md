@@ -49,7 +49,9 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 (read from the `environment.yml`)
 ```bash
-conda create --name notebook create -f environment.yml
+conda env create --file environment.yml  
+
+conda activate notebook
 ```
 
 (manual)
@@ -67,7 +69,7 @@ conda install xeus-cling -c conda-forge # optional: for c++ kernel
 ```bash
 jupyter notebook # local
 
-jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root # on cloud
+jupyter notebook --ip=0.0.0.0 --port=8080 --no-browser --allow-root # on cloud
 ```
 
 # Nice help & resources

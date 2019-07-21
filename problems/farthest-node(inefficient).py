@@ -3,6 +3,7 @@ from typing import List
 def solution(n : int, vertices : List[List[int]]) -> int:
     minDis = [0] * (n + 1)
     visited = [False] * (n + 1)
+    visited[0], visited[1] = True, True # we don't use index 0. index 1 is the starting point.
     graph = [[False for i in range(n + 1)] for j in range(n + 1)]
 
     for vertex in vertices:
@@ -19,12 +20,14 @@ def solution(n : int, vertices : List[List[int]]) -> int:
             minDis[i] = 1
             
     while stack:
+        #print(stack)
         temp = stack.pop(0)
         # for each node, check if temp is connected to it
         for i in range(n+1):
             if graph[temp[0]][i] and not visited[i]:
                 visited[i] = True
                 minDis[i] = 1 + temp[1]
+                # i: node number, minDis[i]: minimum distance from 1 to i
                 stack.append((i,minDis[i]))
 
     # discard index 0 and 1 because they are useless

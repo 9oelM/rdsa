@@ -1,5 +1,4 @@
 # https://programmers.co.kr/learn/courses/30/lessons/12900
-
 def solution(n):
     result = {('||', 2), ('=', 2)}
     if n == 1:
@@ -17,9 +16,11 @@ def solution(n):
                 if width + 2 <= n:
                     newSet.add((f'{arrangement}=', width + 2))
                     newSet.add((f'={arrangement}', width + 2))
+            print(newSet)
             result |= newSet
             result = set([(arrangement, width) for arrangement, width in result if n - width <= 2])
-    count = sum(width == n for arrangement, width in list(result))
-    return count
 
-print(solution(4))
+    result = [arrangement for arrangement, width in result if width == n ]
+    return len(result) % 1000000007
+
+print(solution(7))

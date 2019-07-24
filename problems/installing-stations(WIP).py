@@ -1,39 +1,32 @@
 # https://programmers.co.kr/learn/courses/30/lessons/12979
-
-def forward(station, w, until, last=False):
-    stationCount = 0
-    while station + w * 2 + 1 <= until:
-        stationCount += 1
-        station = station + w * 2 + 1
-    # last right edge
-    if station + w + 1 <= until and last:
-        stationCount += 1
-    return stationCount
-
-def backward(station, w, until, last=False):
-    stationCount = 0
-    while station - w * 2 + 1 >= until:
-        stationCount += 1
-        station =  station - w * 2 + 1 
-    # last left edge
-    if station - w - 1 >= until and last:
-        stationCount += 1
-    return stationCount 
-
 def solution(n, stations, w):
-    leftRightWidth = w * 2 + 1
+    if not stations:
+        count = 0
+        count += n // (2 * w + 1)
+        re = n % (2 * w + 1)
+        if re > 0:
+            count += 1
+        return count
+    
     stationLen = len(stations)
     stationCount = 0
     stations.sort()
-    for idx, s in enumerate(stations):
-        station = s
-        if idx == 0:
-            stationCount += backward(s, w, 1, True)
-            if stationLen == 1: # only one station
-                stationCount += forward(s,w,n, True)
-        else:
-            if idx != stationLen - 1: # not the last APT
-                stationCount += forward(s,w,stations[idx+1])
-            else: # last APT
-                stationCount += forward(s,w,n, True)
+    left = stations[0] - w
+    while left > 0:
+        stationCount += 1
+        left -= 2 * w + 1
+    for idx in range(len(stations)):
+        if idx + 1 != len(stations):
+            diff =  stations[idx+1] - stations[idx] - 2 * w
+            while diff > 0:
+                stationCount += 1
+                diff -= 2 * w + 1
+    right = n - stations[-1] - w
+    while right > 0:
+        stationCount += 1
+        right -= 2 * w + 1
     return stationCount
+
+print(solution(11, [4,11], 1))
+print(solution(16, [9], 2))
+print(solution(9, [], 2))

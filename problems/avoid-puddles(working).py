@@ -2,7 +2,7 @@
 from typing import List
 
 def solution(width : int, height : int, obstacles : List[List[int]]) -> int:
-    grid = [[0 for x in range(height + 1)] for y in range(width + 1)]
+    grid = [[0 for y in range(height + 1)] for x in range(width + 1)]
     for puddle in obstacles:
         grid[puddle[0]][puddle[1]] = -1
     grid[1][1] = 1

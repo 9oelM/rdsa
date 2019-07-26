@@ -1,4 +1,5 @@
 # https://programmers.co.kr/learn/courses/30/lessons/12900
+
 def solution(n):
     crnt = 1
     nxt = 2
@@ -8,5 +9,5 @@ def solution(n):
         nxt, crnt = crnt+nxt, nxt
     return nxt % 1000000007
 
-print(solution(60000))
+print(solution(3))
 

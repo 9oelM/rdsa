@@ -14,7 +14,6 @@ def solution(width : int, height : int, obstacles : List[List[int]]) -> int:
                 if grid[x-1][y] != -1:
                     grid[x][y] += grid[x-1][y]
                 grid[x][y] = grid[x][y] % 1000000007
-   # print(grid)
     return grid[-1][-1]
 
 print(solution(4,3, [[2,2]]))

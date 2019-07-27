@@ -1,5 +1,6 @@
-from typing import Callable, Union, List
+# https://programmers.co.kr/learn/courses/30/lessons/12936
 
+from typing import Callable, Union, List
 
 def fac(n: int) -> int:
     if n == 1:

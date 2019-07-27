@@ -47,9 +47,6 @@ def solution(n: int, k: int) -> int:
 
     return recur(combinations / n, n - 1, k, ans, people)
 
-
 solution(3, 5)
-
 solution(4, 5)
-
 solution(4, 19)

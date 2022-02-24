@@ -1,7 +1,7 @@
 from typing import List, Tuple
 import unittest
 
-from sorts import selection_sort_recursive, selection_sort, insertion_sort, merge, merge_sort, direct_access_array_sort, counting_sort
+from sorts import selection_sort_recursive, selection_sort, insertion_sort, merge, merge_sort, direct_access_array_sort, counting_sort, radix_sort
 
 def create_testcases():
   tests: Tuple[Tuple[List[int], List[int]]] = [
@@ -87,6 +87,10 @@ class TestCases(unittest.TestCase):
         (
           "counting sort",
           counting_sort,
+        ),
+        (
+          "radix sort",
+          radix_sort,
         )
       ):
         for input, expected in create_testcases():

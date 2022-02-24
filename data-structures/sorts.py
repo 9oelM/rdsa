@@ -1,4 +1,5 @@
 from math import inf
+from pprint import pprint
 import sys
 import types
 from typing import List, Type, Union
@@ -159,26 +160,45 @@ def counting_sort_box(arr: List[Type[Box]]) -> List[Type[Box]]:
   return arr
 
 def radix_sort(arr: List[int]):
+  # the length of the original array
   n = len(arr)
-  u = 1 + max(arr)
-  c = 1 + (u.bit_length() // n.bit_length())
-
-  print(n, u, c)
-
+  max_element_value = 1 + max(arr)
+  # c = length of a digit tuple
+  # dividing bit length of max_element_value by the length of the original array and adding one
+  # gives the number of digits that can represent the numbers in the original array in base n
+  c = 1 + (max_element_value.bit_length() // n.bit_length())
+  print(f"{c} = 1 + ({max_element_value.bit_length()} // {n.bit_length()})")
   D = [Box() for a in arr]
 
+  # prepare digits to be sorted, in a particular base
   for i in range(n):
     D[i].digits = []
-    D[i].item = arr[i]
+    D[i].item = arr[i] # to be accessed for later
     high = arr[i]
     for j in range(c):
       # x // y, x % y = divmod(x, y)
       high, low = divmod(high, n)
       D[i].digits.append(low)
+
+  for d in D:
+    print(d)
+  # sort from least significant to most significant digit
   for i in range(c):
     for j in range(n):
       D[j].key = D[j].digits[i]
     counting_sort_box(D)
-  for d in D:
-    print(d)
-radix_sort([10,22,53,26,63,17,39])
+    # print(f"{i}th counting sort")
+    # for d in D:
+    #   print(d)
+
+  # output item in the original array
+  for i in range(n):
+    arr[i] = D[i].item
+  return arr
+
+# print(radix_sort([10,22,22,53,26,63,17,39,99,55]))
+# print(radix_sort([134,9,1245,112,90]))
+# print(radix_sort([112,134,1245,61,63,919,41,9]))
+# print(radix_sort([112,134,1245,61,63,919,41,8,9]))
+# print(radix_sort([1251251,1122315]))
+

@@ -1,6 +1,7 @@
 from math import inf
 import sys
-from typing import List, Union
+import types
+from typing import List, Type, Union
 
 def find_max_index(arr: List[int], tracking_index: int) -> int:
   if tracking_index == 0:
@@ -66,8 +67,7 @@ def insertion_sort(arr: List[int]) -> List[int]:
   return arr
 
 def merge(arr0: List[int], arr1: List[int]) -> List[int]:
-  i = len(arr0) - 1
-  j = len(arr1) - 1
+  i, j = len(arr0) - 1, len(arr1) - 1 
   current_insertion_index = len(arr0) + len(arr1) - 1
   merged_sorted_list = [None] * (len(arr0) + len(arr1))
 
@@ -94,25 +94,91 @@ def merge_sort(arr: List[int], left: int, right: int) -> List[int]:
   arr1 = merge_sort(arr, middle + 1, right)
   return merge(arr0, arr1)
 
-def direct_access_array_sort():
+def merge_sort_improved(arr: List[int], left = 0, right = None):
+  if right is None:
+    right = len(arr)
+  if 1 < right - left:
+    center = (left + right + 1) // 2
+    merge_sort_improved(arr, left, center)
+    merge_sort_improved(arr, center, right)
+    left_array, right_array = arr[left:center], arr[center:right]
+    i, j = 0, 0
+    while left < right:
+      if (j > len(right_array)) or (i < len(left_array) and left_array[i] < right_array[j]):
+        arr[left] = left_array[i]
+        i += 1
+      else:
+        arr[left] = right_array[j]
+        j += 1
+      left += 1
+
+def direct_access_array_sort(arr: List[int]) -> List[int]:
+  """
+  Note: only small numbers
+  """
+  daa = [None] * (max(arr) + 1)
+  for _, elem in enumerate(arr):
+    daa[elem] = elem
+  return [x for x in daa if x is not None]
+
+def tuple_sort(arr: List[int]):
+
+
+  pass
+
+def counting_sort(arr: List[int]) -> List[int]:
+  new_arr = [[] for _ in range(max(arr) + 1)]
+  for _, elem in enumerate(arr):
+    new_arr[elem].append(elem)
+  sorted_array = []
+  for chain in new_arr:
+    for elem in chain:
+      sorted_array.append(elem)
+
+  return sorted_array
+
+class Box: 
+  key = None
+  item = None
+  digits = None
+
+  def __str__(self) -> str:
+    return f"Box{{digits: {self.digits} item: {self.item}}}"
+
+def counting_sort_box(arr: List[Type[Box]]) -> List[Type[Box]]:
+  new_arr = [[] for _ in range(max([x.key for x in arr]) + 1)]
+  for _, elem in enumerate(arr):
+    new_arr[elem.key].append(elem)
   
-  pass
+  i = 0
+  for chain in new_arr:
+    for elem in chain:
+      arr[i] = elem
+      i += 1
 
-def tuple_sort():
-  pass
+  return arr
 
-def counting_sort():
-  pass
+def radix_sort(arr: List[int]):
+  n = len(arr)
+  u = 1 + max(arr)
+  c = 1 + (u.bit_length() // n.bit_length())
 
-def radix_sort():
-  pass
+  print(n, u, c)
 
+  D = [Box() for a in arr]
 
-a = [1,2,3,5,7,8,9,0,2,1,4,5,1,5,1,32,4]
-print(merge_sort(a, 0, len(a) - 1))
-# merge_sort([1,2,3,4], 0, 3)
-
-print(merge([1,2,3], [4,5,6]))
-print(merge([2,4,5], [4,5,6]))
-print(merge([4,7,7], [4,5,8]))
-print(merge([4,7,7], [4,5]))
+  for i in range(n):
+    D[i].digits = []
+    D[i].item = arr[i]
+    high = arr[i]
+    for j in range(c):
+      # x // y, x % y = divmod(x, y)
+      high, low = divmod(high, n)
+      D[i].digits.append(low)
+  for i in range(c):
+    for j in range(n):
+      D[j].key = D[j].digits[i]
+    counting_sort_box(D)
+  for d in D:
+    print(d)
+radix_sort([10,22,53,26,63,17,39])

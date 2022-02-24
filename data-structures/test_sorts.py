@@ -1,7 +1,7 @@
 from typing import List, Tuple
 import unittest
 
-from sorts import selection_sort_recursive, selection_sort, insertion_sort, merge, merge_sort
+from sorts import selection_sort_recursive, selection_sort, insertion_sort, merge, merge_sort, direct_access_array_sort, counting_sort
 
 def create_testcases():
   tests: Tuple[Tuple[List[int], List[int]]] = [
@@ -41,7 +41,7 @@ def create_testcases():
       (
         [9,7,6,5,4,3,2,1,1,2,5,6,7,71241,5616,67,1,1248,9,902,12,125],
         [1, 1, 1, 2, 2, 3, 4, 5, 5, 6, 6, 7, 7, 9, 9, 12, 67, 125, 902, 1248, 5616, 71241],
-      )
+      ),
       (
         [1],
         [1],
@@ -53,6 +53,10 @@ def create_testcases():
       (
         [1,2],
         [1,2],
+      ),
+      (
+        [1,3,2],
+        [1,2,3],
       )
   ]
   return tests
@@ -75,11 +79,22 @@ class TestCases(unittest.TestCase):
         (
           "merge sort",
           merge_sort,
+        ),
+        (
+          "direct access array sort",
+          direct_access_array_sort,
+        ),
+        (
+          "counting sort",
+          counting_sort,
         )
       ):
         for input, expected in create_testcases():
           if description == "merge sort":
             self.assertEqual(fn(input, 0, len(input) - 1), expected, f"{description} should sort correctly")
+          elif description == "direct access array sort":
+            # direct acccess array assumes that every element in the array is unique
+            self.assertEqual(fn(input), sorted(list(set(expected))), f"{description} should sort correctly")
           else:
             self.assertEqual(fn(input), expected, f"{description} should sort correctly")
     def test_merge(self):

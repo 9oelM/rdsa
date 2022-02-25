@@ -166,6 +166,7 @@ def radix_sort(arr: List[int]):
   # c = length of a digit tuple
   # dividing bit length of max_element_value by the length of the original array and adding one
   # gives the number of digits that can represent the numbers in the original array in base n
+  # problem: it will give a number minus one the desired number for some inputs like [112,134,1245,61,63,919,41,9], leading to incorrect calculations
   c = 1 + (max_element_value.bit_length() // n.bit_length())
   print(f"{c} = 1 + ({max_element_value.bit_length()} // {n.bit_length()})")
   D = [Box() for a in arr]

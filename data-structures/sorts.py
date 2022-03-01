@@ -196,10 +196,3 @@ def radix_sort(arr: List[int]):
   for i in range(n):
     arr[i] = D[i].item
   return arr
-
-# print(radix_sort([10,22,22,53,26,63,17,39,99,55]))
-# print(radix_sort([134,9,1245,112,90]))
-# print(radix_sort([112,134,1245,61,63,919,41,9]))
-# print(radix_sort([112,134,1245,61,63,919,41,8,9]))
-# print(radix_sort([1251251,1122315]))
-

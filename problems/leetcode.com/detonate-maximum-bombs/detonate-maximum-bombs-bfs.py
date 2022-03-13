@@ -17,13 +17,29 @@ class Solution:
 
         return sqrt((x2 - x1)**2 + (y2 - y1)**2) <= radius
 
-    def bfs(self, node: int, visited: set[int], graph: DefaultDict[int, List[int]]):
-        for child in graph[node]: # O(V)
-            if child not in visited: # O(len(visited)) <= O(V)
-              pass
-              
-                # graph[]
-                # self.dfs(child, visited, graph) # if the child is not visited yet, visit it
+
+    def bfs(self, source_node: int, graph: DefaultDict[int, List[int]]) -> int:
+        """
+        Run a BFS once, starting from source_node
+        return the count of all visited nodes
+        """
+        # nothing is connected
+        if not graph:
+            return 1
+        visited = {}
+        queue = [source_node]
+        visited[source_node] = True
+        visited_cnt = 1
+
+        while queue:
+            s = queue.pop(0)
+            for i in graph[s]:
+                if not i in visited:
+                    queue.append(i)
+                    visited[i] = True
+                    visited_cnt += 1
+
+        return visited_cnt
 
     def build_graph(self, bombs: List[List[int]]) -> DefaultDict[int, List[int]]:
         graph = defaultdict(list)
@@ -41,22 +57,17 @@ class Solution:
         graph = self.build_graph(bombs)
 
         for i in range(n): # O(V)
-            visited: set[int] = set([i])
-            self.dfs(i, visited, graph)
-            # update the length of visited vertices
-            maximum_detonations = max(maximum_detonations, len(visited)) # O(V)
-
-            # if it is at maximum in the middle of the search, just return it because it is the greatest possible number anyway
-            if maximum_detonations == len(graph): return maximum_detonations
+            maximum_detonations = max(self.bfs(i, graph), maximum_detonations)
 
         return maximum_detonations
 
 # bombs[i] = [xi, yi, ri]. xi and yi denote the X-coordinate and Y-coordinate of the location of the ith bomb, whereas ri denotes the radius of its range.
 cases = [
-    [[1,2,3],[2,3,1],[3,4,2],[4,5,3],[5,6,4]]
+    [[1,2,3],[2,3,1],[3,4,2],[4,5,3],[5,6,4]],
+    [[1,1,5],[10,10,5]],
+    [[1,1,100],[81,61,60]]
 ]
 
 s = Solution()
-# for c in cases:
-#     print(c)
-#     print(s.maximumDetonation(c))
+for c in cases:
+    print(s.maximumDetonation(c))

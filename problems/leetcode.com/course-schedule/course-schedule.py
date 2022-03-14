@@ -43,6 +43,8 @@ class Solution:
   1. The graph is a directed graph
   2. If there is a cycle, that means contradiction between prerequisites. So not all courses can be taken.
   3. All nodes don't necessarily have to be connected as long as they are without a cycle 
+
+  Time complexity: O(V + E)
   """
   def dfs(self, node: int, graph: Graph, visited: List[List[int]]) -> bool:
     if visited[node] == BEING_VISITED: # Cycle

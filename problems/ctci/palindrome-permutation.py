@@ -59,6 +59,7 @@ def has_palindrome_improved(s: str) -> bool:
     else:
       del chars[lc]
 
+  print((chars.keys())[0])
   return len(chars.keys()) <= 1
 
 cases = [

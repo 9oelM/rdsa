@@ -1,4 +1,4 @@
-class LinkedListNode<Data> {
+export class LinkedListNode<Data> {
   public data: Data
   public next?: LinkedListNode<Data>
   public index?: number

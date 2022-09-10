@@ -31,8 +31,8 @@ export class LinkedList<Data> {
     })
   }
   
-  public printLinkedList<Data>(head?: LinkedListNode<Data>) {
-    let ptr: LinkedListNode<Data> | undefined = head 
+  public printLinkedList() {
+    let ptr: LinkedListNode<Data> | undefined = this.head 
     while (ptr !== undefined) {
       console.log(ptr.data)
       ptr = ptr.next
@@ -40,3 +40,11 @@ export class LinkedList<Data> {
   }
 }
 
+export const linkedListTestCases = [
+  new LinkedList(1,2,3,4,5,6,7,8,9,10),
+  new LinkedList(1,1,1,1,1,1,2,2,2,2,10),
+  new LinkedList(1,1,1,1,2,3,5,6,7,1,151,566,1,41,5),
+  new LinkedList(1),
+  new LinkedList(2,2),
+  new LinkedList(3,2,1),
+]

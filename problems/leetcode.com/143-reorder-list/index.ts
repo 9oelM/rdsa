@@ -32,7 +32,7 @@ function reverseList(head: ListNode | null): ListNode | null {
   return prev
 }
 
-function reorderList(head: ListNode | null): void {
+export function reorderList(head: ListNode | null): void {
   const middleNode = findAndCutMiddle(head)
   let rightHead = reverseList(middleNode)
   while (rightHead) {
